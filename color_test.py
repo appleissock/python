@@ -10,7 +10,7 @@ sheet.cell(row=2,column=2).fill=PatternFill(fgColor='DC143C', fill_type="lightHo
 sheet['A3']='TEST'
 
 sheet.cell(row=4, column=1).value='YAZAKI'
-for i in range(10):
+for i in range(20):
      name= i
      sheet.cell(row=3+i, column=1, value="%s" % name).fill=whiteFill
 print("Done")
