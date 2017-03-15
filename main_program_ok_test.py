@@ -41,16 +41,17 @@ def cutpice(connector, cscc_conn_name, sheet2 ,i): #模糊比對模式
 
             
 #=======================載入cscc================================
-data_local="c:\\"
-wb1,sheet1=loadExcel('cscc.xlsx')
+data_local="c:\\demo\\DATA\\"
+data_name="cscc.xlsx"
+wb1,sheet1=loadExcel(data_local+data_name)
 cscc_conn_name={}
 
 for i in range(2,sheet1.max_row+1):
     cscc_conn_name=cscc(cscc_conn_name, i, sheet1)
     
 #=======================載入Connector_list=======================
-
-wb2,sheet2=loadExcel('CONNCECTOR_LIST.xlsx')
+connector_name="CONNCECTOR_LIST.xlsx"
+wb2,sheet2=loadExcel(data_local+connector_name)
 for i in range(2,sheet2.max_row+1):
     #如果connector_list裡的接頭功能名稱有在cscc中
     if Ncell(sheet2,i,1) in cscc_conn_name:
