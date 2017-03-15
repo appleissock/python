@@ -80,7 +80,7 @@ print("There are %s connector" % maxConnector)
 print("Find %s match item" % find)
 print("Find %s Fuzzy match item" % fuzzy)
 print("Save File...")
-wb2.save('CONNECTOR_LIST_Test.xlsx')
+wb2.save('c:\\demo\\DATA\\CONNECTOR_LIST_Test.xlsx')
 print("Done")
     
 
