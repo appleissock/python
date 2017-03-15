@@ -32,7 +32,7 @@ def cutpice(connector, cscc_conn_name, sheet2 ,i): #模糊比對模式
         s2=set(cscc_split)
         if len(s1.symmetric_difference(s2)) <2: #此處運用python list比對技巧,如果兩個set的值差異的項目小於2就當它們是一樣的東西
             print("The fuzzy match item is %s" % cscc_name)
-            sheet2.cell(row=i, column=3).value=cscc_conn_name[cscc_name][1].upper().strip()+' '+cscc_conn_name[cscc_name][0].upper().strip()
+            sheet2.cell(row=i, column=3).value=cscc_conn_name[cscc_name][0].upper().strip()
             fuzzy += 1
             break
         else:
@@ -58,7 +58,7 @@ for i in range(2,sheet2.max_row+1):
         if len(cscc_conn_name[Ncell(sheet2,i,1)])> 2:
             #先比對該接頭功能名稱的料號是否有出現在CSCC中, 有的話就把該值填入connector_list中(意指廠商用料與connector指定相符)
             for j in range(0,len(cscc_conn_name[Ncell(sheet2,i,1)])):
-                if Ncell(sheet2,i,2).replace(' ','').replace('-','').upper()==(cscc_conn_name[Ncell(sheet2,i,1)][j].replace(' ','').replace('-','').upper():
+                if Ncell(sheet2,i,2).replace(' ','').replace('-','').upper()==cscc_conn_name[Ncell(sheet2,i,1)][j].replace(' ','').replace('-','').upper() :
                     sheet2.cell(row=i,column=3).value=cscc_conn_name[Ncell(sheet2,i,1)][j].upper().strip()
                     print("%s is matched" %  Ncell(sheet2,i,1))
                     find += 1
@@ -68,7 +68,7 @@ for i in range(2,sheet2.max_row+1):
                     print("%s is matched" %  Ncell(sheet2,i,1))
                     find += 1
         else:  #如果list長度沒大於2,那就直接將值填入connector_list(代表該功能cscc與connector_list是一對一的關係)
-            sheet2.cell(row=i,column=3).value=cscc_conn_name[Ncell(sheet2,i,1)]
+            sheet2.cell(row=i,column=3).value=cscc_conn_name[Ncell(sheet2,i,1)][0]
             print("%s is matched" %  Ncell(sheet2,i,1))
             find += 1
     else: #如果接頭名稱不在CSCC中,進入模糊比對模式
