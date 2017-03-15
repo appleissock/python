@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 #本程式可將CSCC中廠商所使用的接頭料號結合進Connector_List中
 import openpyxl
 import re
@@ -41,6 +41,7 @@ def cutpice(connector, cscc_conn_name, sheet2 ,i): #模糊比對模式
 
             
 #=======================載入cscc================================
+data_local="c:\\"
 wb1,sheet1=loadExcel('cscc.xlsx')
 cscc_conn_name={}
 
